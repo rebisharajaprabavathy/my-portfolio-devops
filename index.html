@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebisha - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header .title {
+            color: #3498db;
+            font-size: 1.3em;
+            font-weight: 300;
+        }
+        
+        .content-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .about-text {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .skill-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #3498db;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+            background: #e3f2fd;
+        }
+        
+        .projects-list {
+            list-style: none;
+        }
+        
+        .project-item {
+            background: #f8f9fa;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+            transition: all 0.3s ease;
+        }
+        
+        .project-item:hover {
+            background: #ffebee;
+            transform: translateX(10px);
+        }
+        
+        .contact-info {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .email {
+            color: #3498db;
+            font-size: 1.2em;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .email:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Rebisha</h1>
+            <div class="title">Computer Science Student & DevOps Enthusiast</div>
+        </div>
+        
+        <div class="content-section">
+            <h2>About Me</h2>
+            <p class="about-text">
+                I am a passionate computer science student interested in software development and emerging technologies. 
+                Currently exploring DevOps practices, cloud computing, and machine learning to build efficient and scalable solutions.
+            </p>
+        </div>
+        
+        <div class="content-section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Java</div>
+                <div class="skill-item">Python</div>
+                <div class="skill-item">Git & GitHub</div>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2>Projects</h2>
+            <ul class="projects-list">
+                <li class="project-item">
+                    <strong>Heart Disease Prediction and Recommendation using ML</strong><br>
+                    Machine learning model to predict heart disease and provide personalized health recommendations.
+                </li>
+                <li class="project-item">
+                    <strong>Coffee Shop AI Chatbot</strong><br>
+                    Intelligent chatbot for coffee shop ordering system using natural language processing.
+                </li>
+                <li class="project-item">
+                    <strong>Online RTO Service Portal</strong><br>
+                    Web-based platform for Regional Transport Office services with automated workflows.
+                </li>
+            </ul>
+        </div>
+        
+        <div class="content-section">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <a href="mailto:rebisha@example.in" class="email">rebisha@example.in</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            &copy; 2025 Rebisha. DevOps Portfolio Project.
+        </div>
+    </div>
+</body>
+</html>
