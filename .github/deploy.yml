@@ -1,0 +1,41 @@
+name: Build and Deploy to AKS
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  ACR_NAME: rebishaportfolioacr
+  RESOURCE_GROUP: rebisha-portfolio-rg
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    # Step 1: Checkout the code
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # Step 2: Log in to Azure
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    # Step 3: Log in to ACR
+    - name: Login to ACR
+      run: |
+        az acr login --name $ACR_NAME
+
+    # Step 4: Build and Push Docker image
+    - name: Build and Push Docker Image
+      run: |
+        docker build -t $ACR_NAME/my-portfolio:${{ github.sha }} .
+        docker push $ACR_NAME/my-portfolio:${{ github.sha }}
+
+    # Step 5: Deploy to Kubernetes
+    - name: Deploy to AKS
+      run: |
+        az aks get-credentials --resource-group $RESOURCE_GROUP --name rebishaAKSCluster
+        kubectl set image deployment/portfolio-deployment portfolio-container=$ACR_NAME/my-portfolio:${{ github.sha }} --record
+        kubectl rollout status deployment/portfolio-deployment
