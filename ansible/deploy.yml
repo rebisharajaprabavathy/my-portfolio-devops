@@ -1,0 +1,19 @@
+---
+- name: Deploy Portfolio to AKS
+  hosts: localhost
+  connection: local
+  vars:
+    acr_login_server: "{{ acr_login_server }}"
+    image_tag: "latest"
+
+  tasks:
+    - name: Update image in Kubernetes deployment
+      replace:
+        path: "../kubernetes/deployment.yaml"
+        regexp: 'image: {{ acr_login_server }}/my-portfolio:.*'
+        replace: 'image: {{ acr_login_server }}/my-portfolio:{{ image_tag }}'
+
+    - name: Deploy to Kubernetes
+      kubernetes.core.k8s:
+        state: present
+        src: "../kubernetes/"
